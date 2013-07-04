@@ -167,7 +167,7 @@ And async:
 
 ### License
 
-Fastprot is provided under the terms of [the MIT license][license]
+Fastprot is provided under the terms of [the MIT license][license].
 
 [boost]:http://www.boost.org
 [cppa]:https://github.com/Neverlord/libcppa
