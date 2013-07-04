@@ -88,7 +88,7 @@ FAST protocol message decoder for Erlang.
 
 ### Async World
 
-It is possible decoding messages asynchronously. Use `fastprot:async` module for that.
+It is possible decoding messages asynchronously. Use `fastprot_async` module for that.
 
 1. Create decoder:
 
@@ -151,16 +151,11 @@ It is possible decoding messages asynchronously. Use `fastprot:async` module for
 
 It is possible to specify decoding output format. Those are supported:
 
-- __term__
-List of items representing a pair of tag (integer) and a value (binary string) or a list of such pairs.
-- __term_ex__
-Contains more information, items in the list is represented by records (value, sequence, group) and may include such properties as: tag, name, value (all are binary strings).
-- __fix__
-FIX protocol message.
-- __json__
-Same as __term__ mode, but represented as a binary string and in the json format.
-- __json_ex__
-Contains more information, items may include such properties as: type, tag, name, value.
+- `term` list of items representing a pair of tag (integer) and a value (binary string) or a list of such pairs
+- `term_ex` contains more information, items in the list is represented by records (value, sequence, group) and may include such properties as: tag, name, value (all are binary strings)
+- `fix` FIX protocol message
+- `json` same as `term` mode, but represented as a binary string and in the json format
+- `json_ex` contains more information, items may include such properties as: type, tag, name, value
 
 Sync way:
 
