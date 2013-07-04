@@ -13,7 +13,7 @@ FAST protocol message decoder for Erlang.
 
 1. Build and install dependencies.
 
-	> ___Important!__ On OSX you must link libc++ library instead of libstdc++ when building dependency libraries,  in case of using Clang compiler._
+	> __Important!__ On OSX you must link libc++ library instead of libstdc++ when building dependency libraries,  in case of using Clang compiler._
 
 2. Build application:
 
