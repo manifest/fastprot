@@ -35,11 +35,11 @@
                 <constant value="8"/>
             </uInt32>
             <string name="Symbol" id="55" presence="optional">
-				<copy/>
-			</string>
-			<uInt32 name="ExchangeTradingSessionID" id="5842" presence="optional">
-				<copy/>
-			</uInt32>
+                <copy/>
+            </string>
+            <uInt32 name="ExchangeTradingSessionID" id="5842" presence="optional">
+                <copy/>
+            </uInt32>
 
             <uInt32 name="RptSeq" id="83"/>
 
@@ -105,9 +105,9 @@
             <string name="MDEntryType" id="269">
                 <copy/>
             </string>
-			<uInt32 name="ExchangeTradingSessionID" id="5842" presence="optional">
-				<copy/>
-			</uInt32>
+            <uInt32 name="ExchangeTradingSessionID" id="5842" presence="optional">
+                <copy/>
+            </uInt32>
 
             <int64 name="MDEntryID" id="278" presence="optional"/>
 
@@ -137,7 +137,7 @@
     <!--
        Common Security Definition template
    -->
-    <template name="SecurityDefinition" id="76" dictionary="76">
+    <template name="SecurityDefinition" id="79" dictionary="79">
         <string name="ApplVerID" id="1128">
             <constant value="8"/>
         </string>
@@ -161,7 +161,7 @@
         <uInt32 name="SecurityIDSource" id="22">
             <constant value="8"/>
         </uInt32>
-        
+
         <string name="SecurityAltID" id="455" presence="optional"/>
         <string name="SecurityAltIDSource" id="456" presence="optional"/>
 
@@ -199,8 +199,6 @@
             <uInt64 name="UnderlyingSecurityID" id="309" presence="optional"/>
         </sequence>
 
-        <!-- UTC Date Only YYYYMMDD -->
-        <uInt32 name="MaturityDate" id="541" presence="optional"/>
 
         <!-- Price constraints -->
         <decimal name="HighLimitPx" id="1149" presence="optional"/>
@@ -215,7 +213,7 @@
         <string name="QuotationList" id="20005" presence="optional"/>
 
         <decimal name="TheorPrice" id="20006" presence="optional"/>
-		<decimal name="TheorPriceLimit" id="20007" presence="optional"/>
+        <decimal name="TheorPriceLimit" id="20007" presence="optional"/>
 
         <sequence name="InstrumentLegs" presence="optional">
             <length name="NoLegs" id="555"/>
@@ -231,9 +229,24 @@
             <int32 name="InstrAttribType" id="871"/>
             <string name="InstrAttribValue" id="872"/>
         </sequence>
-        
+
         <decimal name="UnderlyingQty" id="879" presence="optional"/>
+
         <string name="UnderlyingCurrency" id="318" presence="optional"/>
+
+        <sequence name="EvntGrp" presence="optional">
+            <length name="NoEvents" id="864"/>
+            <int32 name="EventType" id="865"/>
+            <uInt32 name="EventDate" id="866"/>
+            <uInt64 name="EventTime" id="1145"/>
+        </sequence>
+
+        <!-- UTC Date Only YYYYMMDD -->
+        <uInt32 name="MaturityDate" id="541" presence="optional"/>
+
+        <!-- UTC Time. HHMMSSsss -->
+        <uInt32 name="MaturityTime" id="1079" presence="optional"/>
+
     </template>
 
     <template name="SecurityDefinitionUpdateReport" id="77" dictionary="77">
@@ -257,7 +270,7 @@
 
         <decimal name="Volatility" id="5678" presence="optional"/>
         <decimal name="TheorPrice" id="20006" presence="optional"/>
-		<decimal name="TheorPriceLimit" id="20007" presence="optional"/>
+        <decimal name="TheorPriceLimit" id="20007" presence="optional"/>
     </template>
 
     <template name="SecurityStatus" id="78" dictionary="78">
@@ -282,10 +295,10 @@
         <string name="Symbol" id="55"/>
 
         <uInt32 name="SecurityTradingStatus" id="326" presence="optional"/>
-        
+
         <decimal name="HighLimitPx" id="1149" presence="optional"/>
         <decimal name="LowLimitPx" id="1148" presence="optional"/>
-        
+
         <decimal name="InitialMarginOnBuy" id="20002" presence="optional"/>
         <decimal name="InitialMarginOnSell" id="20000" presence="optional"/>
         <decimal name="InitialMarginSyntetic" id="20001" presence="optional"/>
@@ -373,7 +386,7 @@
         <int32 name="TradSesEvent" id="1368" presence="optional"/>
     </template>
 
-    <template name="News" id="302" dictionary="302">
+    <template name="News" id="303" dictionary="303">
         <string name="ApplVerID" id="1128">
             <constant value="8"/>
         </string>
@@ -389,19 +402,21 @@
         <uInt64 name="SendingTime" id="52">
             <delta/>
         </uInt64>
-        <string name="NewsId" id="1472"/>
-        <uInt64 name="OrigTime" id="42">
+        <string name="NewsId" id="1472" presence="optional"/>
+        <uInt64 name="OrigTime" id="42" presence="optional">
             <delta/>
         </uInt64>
-        <uInt32 name="Urgency" id="61">
+        <string name="LanguageCode" id="1474" presence="optional"/>
+        <uInt32 name="Urgency" id="61" presence="optional">
             <copy value="0"/>
         </uInt32>
         <string name="Headline" id="148" charset="unicode"/>
-        <string name="MarketID" id="1301" presence="optional">
-            <copy/>
+        <string name="MarketID" id="1301">
+            <constant value="RTSX"/>
         </string>
+        <string name="MarketSegmentID" id="1300" presence="optional"/>
         <sequence name="NewsText">
-            <length name="NoLineOfText" id="33"/>
+            <length name="NoLinesOfText" id="33"/>
             <string name="Text" id="58" charset="unicode"/>
         </sequence>
     </template>
